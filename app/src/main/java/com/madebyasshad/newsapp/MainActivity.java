@@ -1,8 +1,12 @@
 package com.madebyasshad.newsapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -23,7 +29,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, com.madebyasshad.newsapp.adapteritem.Onitemclicklistner {
+
+    public static final String extra_url="null";
+    private RecyclerView mrecyclerview;
+    private adapteritem adapteritem;
+    private ArrayList<itemcalss> itemcalsses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        itemcalsses=new ArrayList<>();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +65,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+        mrecyclerview=findViewById(R.id.recycler_view);
+        mrecyclerview.setHasFixedSize(true);
+        mrecyclerview.setLayoutManager(new LinearLayoutManager(this));
 
 
 
@@ -92,9 +111,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(i);
+            finish();
         }
+        else if (id==R.id.mexit)
+        {
+            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
+            moveTaskToBack(true);
+            return true;
 
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -104,19 +131,120 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_suggest) {
+            try {
+                Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "ashadnasim123@gmail.com"));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Suggestions");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
+                startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            }
+            catch (Exception e)
+            {
+                Toast.makeText(getApplicationContext(),"Please try after sometime",Toast.LENGTH_SHORT).show();
+            }
 
         }
+
+
+
+        else if (id == R.id.nav_contactus) {
+            try{
+
+                Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "ashadnasim123@gmail.com"));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Contact");
+                intent.putExtra(Intent.EXTRA_TEXT, "");
+                startActivity(intent);
+            }
+            catch (Exception e)
+            {
+                Toast.makeText(getApplicationContext(),"Please try after sometime",Toast.LENGTH_SHORT).show();
+
+            }
+
+
+
+        }  else if (id == R.id.nav_share) {
+
+
+            //whtsapp
+            try
+            {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT,Uri.parse("Wow !\n" +
+                        "I am really enjoying this NEWS App and think you might like it too.Its Awesome and mind blowing  \n") + "http://play.google.com/store/apps/details?id="+this.getPackageName());
+                Intent ic=Intent.createChooser(intent,"Want to share with");
+                startActivity(ic);
+            }
+            catch (Exception e)
+            {
+
+
+                Toast.makeText(getApplicationContext(),"Something wentss wrong ",Toast.LENGTH_SHORT).show();
+            }
+
+
+
+        }
+
+        else if (id==R.id.rate)
+        {
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+this.getPackageName()
+                )));
+            }
+            catch (android.content.ActivityNotFoundException e)
+            {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://play.google.com/store/apps/details?id="+this.getPackageName())));
+            }
+        }
+        else if (id==R.id.ourotherapp)
+        {
+
+
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=Ashad")));
+            }
+            catch (android.content.ActivityNotFoundException e)
+            {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/developer?id=Ashad")));
+            }
+
+        }
+        else if (id==R.id.weatherapp)
+        {
+
+
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.superoriginal.rootashadnasim.myweatherapp")));
+            }
+            catch (android.content.ActivityNotFoundException e)
+            {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=com.superoriginal.rootashadnasim.myweatherapp")));
+            }
+
+        }
+        else if (id==R.id.techfacts)
+        {
+
+
+            try {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=generalknowledge.app.all.ashad")));
+            }
+            catch (android.content.ActivityNotFoundException e)
+            {
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://play.google.com/store/apps/details?id=generalknowledge.app.all.ashad")));
+            }
+
+        }
+        else if (id==R.id.aboutus)
+        {
+            Intent i=new Intent(getApplicationContext(),aboutuss.class);
+            startActivity(i);
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -127,16 +255,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-
-
-
     private void parsejson()
     {
         //0bf33691eb6c439fa8bfe862bc6fe619
         //https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=API_KEY
-
+//https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0bf33691eb6c439fa8bfe862bc6fe619
         //https://newsapi.org/v2/everything?q=anime&sortBy=publishedAt&apiKey=0bf33691eb6c439fa8bfe862bc6fe619
-        String myurl="https://newsapi.org/v2/everything?q=anime&sortBy=publishedAt&apiKey=0bf33691eb6c439fa8bfe862bc6fe619";
+        String myurl="https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=0bf33691eb6c439fa8bfe862bc6fe619";
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, myurl, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -153,9 +278,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         String urltocontent=jsonObje.getString("url");
                         String urlofimage=jsonObje.getString("urlToImage");
                         String publishedat=jsonObje.getString("publishedAt");
-                        Log.i("author","is "+author);
+                        Log.i("author","is "+description);
+                        Log.i("author","is "+urltocontent);
 
+
+                        itemcalsses.add(new itemcalss(title,description,urltocontent,urlofimage,publishedat,author));
                     }
+                    // myAdapter = new mAdapter(getApplicationContext(), mylistofitem);
+                    //                                mRecyclerView.setAdapter(myAdapter);
+                    adapteritem=new adapteritem(itemcalsses,getApplicationContext());
+                    mrecyclerview.setAdapter(adapteritem);
+                    adapteritem.setonitemclicklistner(MainActivity.this);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -171,5 +304,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         mysingleton.getInstance(getApplicationContext()).addToRequestque(jsonObjectRequest);
 
+    }
+
+
+    @Override
+    public void onitemclick(int position) {
+        Intent i=new Intent(getApplicationContext(),wewbviewintent.class);
+        itemcalss clickeditem=itemcalsses.get(position);
+        i.putExtra(extra_url,clickeditem.getUrltocontent());
+        startActivity(i);
     }
 }
