@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--ca-app-pub-4465784669656039~3965647439-->
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"

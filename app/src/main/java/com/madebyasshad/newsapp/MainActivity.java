@@ -24,6 +24,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +36,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, com.madebyasshad.newsapp.adapteritem.Onitemclicklistner {
 
+    private AdView mAdView;
+
+    String url;
     public static final String extra_url="null";
     private RecyclerView mrecyclerview;
     private adapteritem adapteritem;
@@ -64,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         mrecyclerview=findViewById(R.id.recycler_view);
@@ -111,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent i=new Intent(getApplicationContext(),MainActivity.class);
+            Intent i=new Intent(getApplicationContext(),MainActivity.class).putExtra("url",url);
             startActivity(i);
             finish();
         }
@@ -257,12 +265,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void parsejson()
     {
+        Intent in=getIntent();
+        url=in.getStringExtra("url");
         //0bf33691eb6c439fa8bfe862bc6fe619
         //https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=API_KEY
 //https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0bf33691eb6c439fa8bfe862bc6fe619
         //https://newsapi.org/v2/everything?q=anime&sortBy=publishedAt&apiKey=0bf33691eb6c439fa8bfe862bc6fe619
-        String myurl="https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=0bf33691eb6c439fa8bfe862bc6fe619";
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, myurl, null, new Response.Listener<JSONObject>() {
+
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

@@ -3,808 +3,732 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".choosenewsbro"
     tools:showIn="@layout/app_bar_choosenewsbro">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
+            <EditText
+                android:id="@+id/serchplease"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/accent"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:hint="Enter Here to Search"
+                android:textAlignment="center" />
 
+            <Button
+                android:id="@+id/searchpleasebutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@color/primary_light"
+                android:drawableStart="@drawable/search"
+                android:fontFamily="serif"
 
-            <android.support.v7.widget.CardView
+                android:gravity="center"
+                android:text="Search"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                android:orientation="vertical">
+
+
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforapptopheadlineindia"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Top headline of india"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforapptopheadlineindia"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Top headline of india"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappabcnews"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Abc news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappabcnews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Abc news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappbbcnewss"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="bbc news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappbbcnewss"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="bbc news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappbbcsports"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="bbc sports"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappbbcsports"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="bbc sports"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappcbc"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="cbc"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappcbc"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="cbc"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/cnbc"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="cnbc"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/cnbc"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="cnbc"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappespn"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Espn"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappespn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Espn"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappfoxnews"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="fox news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappfoxnews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="fox news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappfoxsports"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="fox sports"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappfoxsports"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="fox sports"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappgooglenews"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="google news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappgooglenews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="google news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappgooglenewssindia"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="googlenews (india)"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappgooglenewssindia"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="googlenews (india)"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforapphackernews"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Hacker news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforapphackernews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Hacker news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappnbcnews"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="nbc news"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappnbcnews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="nbc news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappnewstwentyfour"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="news24"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappnewstwentyfour"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="news24"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappnewscientist"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="new scientist"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappnewscientist"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="new scientist"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforapptechcrunch"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="tech crunch"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforapptechcrunch"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="tech crunch"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/theeconomist"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="The economist"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/theeconomist"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="The economist"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappthenewyorktime"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="The new york time"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappthenewyorktime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="The new york time"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:id="@+id/newsforappthetelgraph"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="null"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/newsforappthetelgraph"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Telegraph"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
 
 
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="null"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
+                        android:layout_height="match_parent">
 
-                        />
-                </android.support.constraint.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/timesofindia"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="times of india"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
 
-            </android.support.v7.widget.CardView>
+                            />
+                    </android.support.constraint.ConstraintLayout>
 
-
-
-
-
-
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="null"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
-
-                        />
-                </android.support.constraint.ConstraintLayout>
-
-            </android.support.v7.widget.CardView>
+                </android.support.v7.widget.CardView>
 
 
+            </LinearLayout>
+
+        </ScrollView>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:background="@android:color/background_dark"
+            android:orientation="vertical">
 
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_ad_unit_id">
 
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/colorPrimary"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="16dp"
-                android:padding="8dp"
-                android:layout_margin="8dp"
-                >
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="null"
-                        android:textSize="16dp"
-                        android:textColor="@color/secondary_text"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textStyle="normal"
-                        android:textAllCaps="true"
-                        android:fontFamily="serif-monospace"
-
-                        />
-                </android.support.constraint.ConstraintLayout>
-
-            </android.support.v7.widget.CardView>
-
-
-
-
-
+            </com.google.android.gms.ads.AdView>
 
 
         </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
