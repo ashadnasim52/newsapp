@@ -8,4 +8,22 @@
     tools:context=".aboutuss"
     tools:showIn="@layout/app_bar_aboutuss">
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autoLink="all"
+        android:background="@color/primary_light"
+        android:gravity="center"
+        android:text="\nPlease Support for more update\nTry our Other Apps also\n\nPowered by:-\nhttps://newsapi.org\nfor their huge data\n\nMade by :-\nAshad"
+        android:textAlignment="center"
+        android:textColor="@color/secondary_text"
+        android:textColorLink="@color/accent"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
