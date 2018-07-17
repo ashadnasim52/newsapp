@@ -20,12 +20,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 
 import static com.madebyasshad.newsapp.MainActivity.extra_url;
 
 public class wewbviewintent extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AdView mAdView;
+    private RewardedVideoAd mRewardedVideoAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,21 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
         WebView browser = findViewById(R.id.webvieww);
         browser.setWebViewClient(new WebViewClient());
         browser.loadUrl(webadress);
+
+
+
+
+        MobileAds.initialize(getApplicationContext(),
+                getString(R.string.admob_app_id));
+
+        // Get reference to singleton RewardedVideoAd object
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+
+
+        // Load a reward based video ad
+        mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
+
+
 
 
     }
@@ -86,6 +105,11 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
             return true;
 
         }
+
+         else if (id==R.id.support)
+         {
+             showRewardedVideo();
+         }
         return super.onOptionsItemSelected(item);
     }
 
@@ -179,5 +203,16 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void showRewardedVideo() {
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -16,21 +16,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 
 public class choosenewsbro extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private RewardedVideoAd mRewardedVideoAd;
     private AdView mAdView;
 
     TextView newsforapptopheadlineindia,newsforappbbcnewss,newsforappbbcsports,newsforappcbc,cnbc,newsforappespn,newsforappfoxnews,newsforappfoxsports,newsforappgooglenews,newsforappgooglenewssindia,newsforapphackernews,newsforappnbcnews,newsforappnewstwentyfour,newsforappnewscientist,newsforapptechcrunch,theeconomist,newsforappthenewyorktime,newsforappthetelgraph,timesofindia;
 
     Button searchforbtn;
-    EditText searchfortextedirtt;
+    SearchView searchfortextedirtt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +91,20 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+
+
+
+        MobileAds.initialize(getApplicationContext(),
+                getString(R.string.admob_app_id));
+
+        // Get reference to singleton RewardedVideoAd object
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+
+
+        // Load a reward based video ad
+        mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
+
 
 
         newsforapptopheadlineindia.setOnClickListener(new View.OnClickListener() {
@@ -416,7 +433,7 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
         searchforbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String searchtexed=searchfortextedirtt.getText().toString();
+                String searchtexed=searchfortextedirtt.getQuery().toString();
                 if (searchtexed.equals(""))
                 {
                     Toast.makeText(getApplicationContext(), "Please write Something", Toast.LENGTH_SHORT).show();
@@ -475,6 +492,10 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
             moveTaskToBack(true);
             return true;
 
+        }
+        else if (id==R.id.support)
+        {
+            showRewardedVideo();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -570,4 +591,15 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    public void showRewardedVideo() {
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

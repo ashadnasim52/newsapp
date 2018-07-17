@@ -26,16 +26,19 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/serchplease"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/accent"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:hint="Enter Here to Search"
-                android:textAlignment="center" />
+
+            <SearchView
+
+
+
+            android:id="@+id/serchplease"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/accent"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:hint="Enter Here to Search" />
 
             <Button
                 android:id="@+id/searchpleasebutton"
@@ -43,7 +46,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:background="@color/primary_light"
-                android:drawableStart="@drawable/search"
                 android:fontFamily="serif"
 
                 android:gravity="center"
@@ -54,20 +56,30 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_height="0dp"
+            android:layout_weight="500">
 
-            <LinearLayout
+            <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+
+                android:columnCount="2"
+                android:rowCount="9">
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
+
                     android:layout_margin="8dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
+
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="16dp">
@@ -82,11 +94,11 @@
                             android:layout_height="match_parent"
                             android:fontFamily="serif-monospace"
                             android:gravity="center"
-                            android:text="Top headline of india"
+                            android:text="Top\nheadline\nof india"
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="@color/secondary_text"
-                            android:textSize="22sp"
+                            android:textSize="26sp"
                             android:textStyle="normal"
 
                             />
@@ -95,42 +107,20 @@
                 </android.support.v7.widget.CardView>
 
 
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="8dp"
-                    android:padding="8dp"
-                    app:cardBackgroundColor="@color/colorPrimary"
-                    app:cardCornerRadius="14dp"
-                    app:cardElevation="16dp">
-
-                    <android.support.constraint.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/newsforappabcnews"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="serif-monospace"
-                            android:gravity="center"
-                            android:text="Abc news"
-                            android:textAlignment="center"
-                            android:textAllCaps="true"
-                            android:textColor="@color/secondary_text"
-                            android:textSize="22sp"
-                            android:textStyle="normal"
-
-                            />
-                    </android.support.constraint.ConstraintLayout>
-
-                </android.support.v7.widget.CardView>
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -160,9 +150,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -192,9 +190,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -224,9 +230,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -256,9 +270,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -288,9 +310,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -320,9 +350,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -352,9 +390,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -384,9 +430,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -416,9 +470,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -446,11 +508,59 @@
 
                 </android.support.v7.widget.CardView>
 
+                <android.support.v7.widget.CardView
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
+                    android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+
+                    android:layout_marginTop="25dp"
+                    android:padding="8dp"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="16dp">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/newsforappabcnews"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="serif-monospace"
+                            android:gravity="center"
+                            android:text="Abc news"
+                            android:textAlignment="center"
+                            android:textAllCaps="true"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="22sp"
+                            android:textStyle="normal"
+
+                            />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -480,9 +590,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -512,9 +630,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -544,9 +670,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -576,9 +710,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -608,9 +750,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -640,9 +790,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -672,9 +830,17 @@
 
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_width="40dp"
+                    android:layout_height="120dp"
+                    android:layout_columnWeight="1"
+
                     android:layout_margin="8dp"
+
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+
+                    android:layout_marginTop="25dp"
                     android:padding="8dp"
                     app:cardBackgroundColor="@color/colorPrimary"
                     app:cardCornerRadius="14dp"
@@ -703,31 +869,22 @@
                 </android.support.v7.widget.CardView>
 
 
-            </LinearLayout>
+            </GridLayout>
 
         </ScrollView>
 
-
-        <LinearLayout
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="7"
-            android:background="@android:color/background_dark"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
 
-            <com.google.android.gms.ads.AdView
-                android:id="@+id/adView"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                ads:adSize="BANNER"
-                ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
 
-            </com.google.android.gms.ads.AdView>
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

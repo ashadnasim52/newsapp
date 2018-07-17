@@ -26,6 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +39,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, com.madebyasshad.newsapp.adapteritem.Onitemclicklistner {
 
     private AdView mAdView;
+    private RewardedVideoAd mRewardedVideoAd;
+
 
     String url;
     public static final String extra_url="null";
@@ -82,6 +86,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+        MobileAds.initialize(getApplicationContext(),
+                getString(R.string.admob_app_id));
+
+        // Get reference to singleton RewardedVideoAd object
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+
+
+        // Load a reward based video ad
+        mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
+
+
+
+
 
 
     }
@@ -122,6 +139,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             moveTaskToBack(true);
             return true;
 
+        }
+        else if (id==R.id.support)
+        {
+            showRewardedVideo();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -317,4 +338,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         i.putExtra(extra_url,clickeditem.getUrltocontent());
         startActivity(i);
     }
+
+
+
+
+
+
+
+    public void showRewardedVideo() {
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

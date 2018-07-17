@@ -16,7 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+
 public class aboutuss extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private RewardedVideoAd mRewardedVideoAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,34 @@ public class aboutuss extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+        MobileAds.initialize(getApplicationContext(),
+                getString(R.string.admob_app_id));
+
+        // Get reference to singleton RewardedVideoAd object
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+
+
+        // Load a reward based video ad
+        mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
+
+
+
+
+
+
+
     }
 
     @Override
@@ -73,6 +107,10 @@ public class aboutuss extends AppCompatActivity implements NavigationView.OnNavi
             moveTaskToBack(true);
             return true;
 
+        }
+        else if (id==R.id.support)
+        {
+            showRewardedVideo();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -168,4 +206,17 @@ public class aboutuss extends AppCompatActivity implements NavigationView.OnNavi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+    public void showRewardedVideo() {
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

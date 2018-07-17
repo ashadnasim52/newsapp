@@ -14,28 +14,30 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="@dimen/cardview_default_elevation"
     app:cardBackgroundColor="#ffffff">
+
     <LinearLayout
-        android:orientation="vertical"
-        android:background="@color/colorAccent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/divider"
+        android:orientation="vertical">
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-
-
             android:layout_gravity="center"
+
+
             android:layout_margin="8dp"
-            app:cardElevation="@dimen/cardview_default_elevation"
+            android:padding="8dp"
+            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="@color/primary">
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:background="@color/primary"
-                android:layout_height="wrap_content">
+                android:background="@color/primary">
 
                 <TextView
                     android:id="@+id/titleofnews"
@@ -44,8 +46,8 @@
                     android:fontFamily="serif"
                     android:text="@string/app_name"
                     android:textAlignment="center"
-                    android:textSize="22sp"
                     android:textColor="@color/primary_text"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -71,16 +73,17 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="@dimen/cardview_default_elevation"
-            app:cardCornerRadius="8dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
             android:padding="8dp"
             app:cardBackgroundColor="@color/primary_light"
-            android:layout_gravity="center"
-            android:layout_margin="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardElevation="@dimen/cardview_default_elevation">
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:id="@+id/contentofnews"
@@ -89,9 +92,9 @@
                     android:fontFamily="monospace"
                     android:text="@string/app_name"
                     android:textAlignment="center"
+                    android:textColor="@color/primary_text"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,20 +103,21 @@
             </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="@dimen/cardview_default_elevation"
-            app:cardCornerRadius="8dp"
-            android:padding="8dp"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#ffffff">
+            android:padding="8dp"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:id="@+id/authorofnews"
@@ -123,9 +127,9 @@
                     android:fontFamily="cursive"
                     android:text="@string/app_name"
                     android:textAlignment="viewStart"
+                    android:textColor="@color/secondary_text"
                     android:textSize="20sp"
                     android:textStyle="italic"
-                    android:textColor="@color/secondary_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/published_at"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -140,9 +144,9 @@
                     android:fontFamily="sans-serif"
                     android:text="@string/app_name"
                     android:textAlignment="center"
+                    android:textColor="@color/secondary_text"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    android:textColor="@color/secondary_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -155,28 +159,28 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="@dimen/cardview_default_elevation"
-            app:cardCornerRadius="8dp"
-            android:padding="8dp"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_margin="8dp">
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="@dimen/cardview_default_elevation">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_margin="8dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
 
                 <TextView
                     android:id="@+id/urlofnews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoLink="web"
                     android:text="@string/app_name"
                     android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:autoLink="web"
-                    android:textStyle="bold"
                     android:textColor="@color/secondary_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
