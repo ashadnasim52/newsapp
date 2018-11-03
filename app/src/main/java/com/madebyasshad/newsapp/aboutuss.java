@@ -108,10 +108,7 @@ public class aboutuss extends AppCompatActivity implements NavigationView.OnNavi
             return true;
 
         }
-        else if (id==R.id.support)
-        {
-            showRewardedVideo();
-        }
+
         return super.onOptionsItemSelected(item);
     }
 

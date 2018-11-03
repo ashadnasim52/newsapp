@@ -1,10 +1,12 @@
 package com.madebyasshad.newsapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,10 +20,14 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import static com.madebyasshad.newsapp.MainActivity.extra_url;
 
@@ -29,6 +35,7 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
 
     private AdView mAdView;
     private RewardedVideoAd mRewardedVideoAd;
+    private InterstitialAd interstitialAd;
 
 
     @Override
@@ -68,6 +75,66 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
         // Load a reward based video ad
         mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
 
+        mRewardedVideoAd.setRewardedVideoAdListener(new RewardedVideoAdListener() {
+            @Override
+            public void onRewardedVideoAdLoaded() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdOpened() {
+
+            }
+
+            @Override
+            public void onRewardedVideoStarted() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdClosed() {
+                mRewardedVideoAd.loadAd(getString(R.string.ad_unit_id), new AdRequest.Builder().build());
+
+
+            }
+
+            @Override
+            public void onRewarded(RewardItem rewardItem) {
+
+//                Toast.makeText(wewbviewintent.this, "Tha", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRewardedVideoAdLeftApplication() {
+
+            }
+
+            @Override
+            public void onRewardedVideoAdFailedToLoad(int i) {
+                showinterstailad();
+
+            }
+        });
+        interstitialAd=new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.interstial_ad_unit));
+
+
+        loadinterstialad();
+
+        interstitialAd.setAdListener(new AdListener()
+        {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                loadinterstialad();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                showRewardedVideo();
+            }
+        });
 
 
 
@@ -80,6 +147,7 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            showinterstailad();
         }
     }
 
@@ -100,16 +168,16 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
         //noinspection SimplifiableIfStatement
 
          if (id == R.id.mexit) {
-            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
-            moveTaskToBack(true);
+//            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
+
+             showRewardedVideo();
+
+             moveTaskToBack(true);
             return true;
 
         }
 
-         else if (id==R.id.support)
-         {
-             showRewardedVideo();
-         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -130,7 +198,13 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
                 Toast.makeText(getApplicationContext(), "Please try after sometime", Toast.LENGTH_SHORT).show();
             }
 
-        } else if (id == R.id.nav_contactus) {
+        }
+        else if(id==R.id.privacypolicy)
+        {
+            //privacypolicy
+            showprivacy();
+        }
+        else if (id == R.id.nav_contactus) {
             try {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "ashadnasim123@gmail.com"));
@@ -194,6 +268,7 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
             }
 
         } else if (id == R.id.aboutus) {
+            showinterstailad();
             Intent i = new Intent(getApplicationContext(), aboutuss.class);
             startActivity(i);
 
@@ -212,7 +287,47 @@ public class wewbviewintent extends AppCompatActivity implements NavigationView.
         }
         else
         {
-            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
+            showinterstailad();
+//            Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private void loadinterstialad()
+    {
+        AdRequest adRequest=new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest);
+    }
+    private void showinterstailad()
+    {
+        if (!interstitialAd.isLoaded()){
+//            showRewardedVideo();
+        }
+        interstitialAd.show();
+    }
+
+
+
+    private  void showprivacy()
+    {
+
+        WebView wb=new WebView(this);
+        wb.loadUrl("https://sites.google.com/view/news-app/home");
+
+        AlertDialog.Builder alert=new AlertDialog.Builder(this);
+
+        alert.setView(wb)
+                .setTitle("Loading...")
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        alert.show();
+
+
+
     }
 }

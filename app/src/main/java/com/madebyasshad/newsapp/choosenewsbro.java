@@ -1,10 +1,12 @@
 package com.madebyasshad.newsapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SearchView;
@@ -488,15 +491,13 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
         //noinspection SimplifiableIfStatement
 
         if (id == R.id.mexit) {
-            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
+            showRewardedVideo();
             moveTaskToBack(true);
             return true;
 
         }
-        else if (id==R.id.support)
-        {
-            showRewardedVideo();
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -553,7 +554,15 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
             } catch (android.content.ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
             }
-        } else if (id == R.id.ourotherapp) {
+        }
+
+        else if(id==R.id.privacypolicy)
+        {
+            //privacypolicy
+            showprivacy();
+        }
+
+        else if (id == R.id.ourotherapp) {
 
 
             try {
@@ -599,6 +608,31 @@ public class choosenewsbro extends AppCompatActivity implements NavigationView.O
         {
             Toast.makeText(getApplicationContext(),"Bad Network Connection",Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    private  void showprivacy()
+    {
+
+        WebView wb=new WebView(this);
+        wb.loadUrl("https://sites.google.com/view/news-app/home");
+
+        AlertDialog.Builder alert=new AlertDialog.Builder(this);
+
+        alert.setView(wb)
+
+                .setTitle("Loading...")
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        alert.show();
+
+
+
     }
 
 

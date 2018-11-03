@@ -36,6 +36,9 @@
             android:name=".choosenewsbro"
             android:label="@string/title_activity_choosenewsbro"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="20b19a1cad6c62b544542bae286dd5d46a1dcc7d" />
     </application>
 
 </manifest>

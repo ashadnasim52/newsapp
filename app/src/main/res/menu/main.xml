@@ -15,11 +15,6 @@
         android:icon="@drawable/refresh"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/support"
-        android:orderInCategory="1"
-        android:title="support"
-        android:icon="@drawable/support"
-        app:showAsAction="always"/>
+
 
 </menu>

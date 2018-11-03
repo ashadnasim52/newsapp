@@ -1,10 +1,12 @@
 package com.madebyasshad.newsapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
@@ -24,8 +27,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 
@@ -40,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private AdView mAdView;
     private RewardedVideoAd mRewardedVideoAd;
+    InterstitialAd interstitialAd;
 
 
     String url;
@@ -66,6 +72,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+
+        interstitialAd=new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.interstial_ad_unit));
+        loadintersstialad();
+        interstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                loadintersstialad();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                showRewardedVideo();
+            }
+        });
+
+
+
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -78,9 +105,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         parsejson();
-
-
-
 
 
 
@@ -101,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
     }
 
     @Override
@@ -110,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            showinterstailad();
         }
     }
 
@@ -135,15 +161,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id==R.id.mexit)
         {
-            Toast.makeText(getApplicationContext(), "PLEASE COME AGAIN", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Have a nice day", Toast.LENGTH_SHORT).show();
             moveTaskToBack(true);
+            showRewardedVideo();
             return true;
 
         }
-        else if (id==R.id.support)
-        {
-            showRewardedVideo();
-        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -260,6 +284,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
         }
+
+        else if(id==R.id.privacypolicy)
+        {
+            //privacypolicy
+            showprivacy();
+        }
         else if (id==R.id.aboutus)
         {
             Intent i=new Intent(getApplicationContext(),aboutuss.class);
@@ -279,6 +309,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void parsejson()
     {
+        showinterstailad();
         Intent in=getIntent();
         url=in.getStringExtra("url");
         //0bf33691eb6c439fa8bfe862bc6fe619
@@ -316,6 +347,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "Something Wents Wrong", Toast.LENGTH_SHORT).show();
+                    showRewardedVideo();
                 }
 
             }
@@ -324,6 +357,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onErrorResponse(VolleyError error) {
                 //TODO show dailog or something
+                Toast.makeText(MainActivity.this, "Something Wents Wrong", Toast.LENGTH_SHORT).show();
+
+                showinterstailad();
             }
         });
         mysingleton.getInstance(getApplicationContext()).addToRequestque(jsonObjectRequest);
@@ -337,6 +373,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         itemcalss clickeditem=itemcalsses.get(position);
         i.putExtra(extra_url,clickeditem.getUrltocontent());
         startActivity(i);
+        showRewardedVideo();
     }
 
 
@@ -356,4 +393,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    private void showinterstailad()
+    {
+        if (!interstitialAd.isLoaded())
+        {
+        }
+        interstitialAd.show();
+
+    }
+    private void loadintersstialad()
+    {
+        AdRequest adRequest=new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest);
+    }
+    private  void showprivacy()
+    {
+
+        WebView wb=new WebView(this);
+        wb.loadUrl("https://sites.google.com/view/news-app/home");
+
+        AlertDialog.Builder alert=new AlertDialog.Builder(this);
+
+        alert.setView(wb)
+
+                .setTitle("Loading...")
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        alert.show();
+
+
+
+
+    }
 }

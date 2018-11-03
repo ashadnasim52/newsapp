@@ -39,6 +39,10 @@
             android:title="About Us"
             android:icon="@drawable/about_us"/>
 
+        <item
+            android:id="@+id/privacypolicy"
+            android:title="Privacy Policy"
+            android:icon="@drawable/privacy"/>
 
     </group>
 

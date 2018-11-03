@@ -10,12 +10,18 @@
     <!--fortestring-->
     <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 
+    <!--<string name="interstial_ad_unit">ca-app-pub-3940256099942544/1033173712</string>-->
     <!--<string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>-->
     <!--<string name="ad_unit_id">ca-app-pub-3940256099942544/5224354917</string>-->
     <!--for real-->
     <string name="banner_ad_unit_id">ca-app-pub-4465784669656039/1581250579</string>
     <string name="admob_app_id">ca-app-pub-4465784669656039~3965647439</string>
+    <string name="interstial_ad_unit">ca-app-pub-4465784669656039/6447745351</string>
+
     <string name="ad_unit_id">ca-app-pub-4465784669656039/1424487849</string>
+    <!--forreal-->
+
+
     <string name="title_activity_wewbviewintent">News App</string>
     <string name="title_activity_choosenewsbro">News App</string>
 
